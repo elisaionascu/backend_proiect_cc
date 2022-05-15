@@ -4,33 +4,18 @@ const router = express.Router();
 const connection = require('../db');
 const { detectText, detectLandMark } = require('../utils/textDetectionFunction');
 
-router.get('/', (req, res) => {
-    connection.query("SELECT * FROM messages", (err, result) => {
-        if (err) {
-            console.log(err);
-            return res.send(err);
-        }
-        return res.json({
-            messages: result
-        })
-    })
-});
-
-router.post('/', (req, res) => {
+router.post('/insertText', (req, res) => {
     console.log(req.body);
     const {
-        senderName,
-        senderMail,
-        receiverMail,
-        messageContent
+        imageText
     } = req.body;
 
-    if (!senderName || !senderMail || !receiverMail || !messageContent) {
+    if (!imageText) {
         return res.status(400).json({
             error: "All fields are required!"
         })
     }
-    connection.query(`INSERT INTO messages (senderName, senderMail, receiverMail, messageContent) values (${mysql.escape(senderName)}, ${mysql.escape(senderMail)}, ${mysql.escape(receiverMail)}, ${mysql.escape(messageContent)})`, (err, result) => {
+    connection.query(`INSERT INTO images (imageText) values (${mysql.escape(imageText)})`, (err, result) => {
         if (err) {
             console.log(err);
             return res.send(err);
