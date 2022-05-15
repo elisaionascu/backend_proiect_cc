@@ -23,9 +23,11 @@ Totodată, Vision API implementează și Landmark Detection prin care identific�
 
 Flux de date
 
-Un flux de date este un mecanism de transmitere a unor date de la server către client automat sau la cerere. Clientul introduce datele care îi sunt necesare și trimite astfel cererea către server. Acesta din urmă realizează diferite prelucrari, dacă este cazul, caută în baza de date sau apelează alte servicii pentru a obține răspunsul dorit. Ulterior, serverul trimite răspunsul către client, furnizându-i informațiile pe care le-a solicitat. Pentru aplicația implementă am realizat atât request-uri de tip GET, cât și request-uri de tip POST. 
+Un flux de date este un mecanism de transmitere a unor date de la server către client automat sau la cerere. Clientul introduce datele care îi sunt necesare și trimite astfel cererea către server. Acesta din urmă realizează diferite prelucrari, dacă este cazul, caută în baza de date sau apelează alte servicii pentru a obține răspunsul dorit. Ulterior, serverul trimite răspunsul către client, furnizându-i informațiile pe care le-a solicitat. Pentru aplicația implementă am realizat atât request-uri de tip GET, cât și request-uri de tip POST.
+
 În primul rând am configurat o instanță SQL în Google Platform. Folosind această instanță și un user atașat am creat și m-am conectat la o baza de date pentru a crea tabela de care aveam nevoie. Conectarea bazei de date la backend am realizat-o prin intermediul fișierului .env în care am păstrat informațiile de conectare la baza dedate precum numele bazi de date, userul și parola pentru a accesa această bază de date, instanta SQL creată anterior si portul de conectare.
 Pentru a utiliza Vision Cloud API, am enablat acest API căutând-ul în Google Cloud și am creat un API KEY pe care îl voi folosi în stabilirea conexiunii și autentificarea in cloud atunci cand realizez request-urile.
+
 Pentru a prelua textul dintr-o imagine, am creat un request de tip GET care primește adresa URL a unei imagini. Prin funcția textDetection(file) am preluat adnotările imaginii și am trimis sub formă de text către utilizator, asa cum se observă în imaginea de mai jos.
  ![app_img2](https://user-images.githubusercontent.com/64652782/168487603-788a4deb-3e46-4828-a73e-70fcc535dfd2.PNG)
 
