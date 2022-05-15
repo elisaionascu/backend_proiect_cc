@@ -20,7 +20,10 @@ async function detectText(file) {
 async function detectLandMark(image) {
     try {
         const [result] = await clientAPI.landmarkDetection(image);
-        console.log(result.landmarkAnnotations);
+        // console.log(result.landmarkAnnotations[0].locations);
+        /*{
+            latLng: { latitude: 41.900932499999996, longitude: 12.483312999999999 }
+        }*/
         return result.landmarkAnnotations[0].description;
     } catch (err) {
         console.log(err);
